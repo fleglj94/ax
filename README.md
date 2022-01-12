@@ -1,7 +1,7 @@
 # ax
 
 Run docker with 
- Docker compose up
+ Ddcker compose up
  
 Run BE with 
   npm run dev
