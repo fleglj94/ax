@@ -19,10 +19,11 @@ const LoginForm = () => {
         setPwd(e.target.value);
     };
 
-
     const submitFormHandler = async (e) => {
         e.preventDefault();
+
         if (email.trim().length === 0 || pwd.trim().length === 0) {
+
             console.log(email);
             setError({
                 title: 'Missing input',
@@ -74,7 +75,7 @@ const LoginForm = () => {
                 <h3 className='card-title text-center mt-lg-5' data-testid="heading"> Sign in</h3>
                 <div className='card w-50  m-lg-5 bg-white'>
                     <div className='card-body'>
-                        <form onSubmit={submitFormHandler}>
+                        <form onSubmit={submitFormHandler} data-testid="form">
                             <div className="mb-3 mt-5">
                                 <label htmlFor="email" className="form-label">Email address</label>
                                 <input type="text" className="form-control"
@@ -87,7 +88,7 @@ const LoginForm = () => {
                             </div>
 
                             <div className="d-grid gap-2 mt-5">
-                                <button className="btn btn-primary mt-5" data-testid="button">Sign in</button>
+                                <button className="btn btn-primary mt-5" data-testid="button" onClick={submitFormHandler}>Sign in</button>
                             </div>
                             {error && <p className='alert-danger mt-3' data-testid="error">{error.message}</p>}
                         </form>

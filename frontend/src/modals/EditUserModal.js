@@ -89,6 +89,7 @@ function EditUserModal(props) {
             setLName(props.fetched.last_name);
             setEmail(props.fetched.email);
             setPwd('');
+            setError('');
         }
 
         catch (e) {
@@ -138,13 +139,13 @@ function EditUserModal(props) {
                     <input type="password" className="form-control w-85"
                            onChange={pwdHandler}/>
                 </div>
-
+                {error && <p className='alert-danger w-75 mx-5'>{error.message}</p>}
             </Modal.Body>
             <Modal.Footer>
                 <button className="btn btn-secondary" type='button' onClick={props.hide}>Close</button>
                 <button className="btn btn-primary" onClick={submitFormHandler}>Update</button>
-                {error && <p className='alert-danger mt-3'>{error.message}</p>}
             </Modal.Footer>
+
         </Modal>
     );
 }
