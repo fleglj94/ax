@@ -3,10 +3,10 @@ const db = require('./configuration/db')
 require('supertest')
 const User = require('./models/users');
 const request = require('supertest')
+const {MONGO_URI } = process.env
 
 beforeAll(async () => {
-    const url = `mongodb://root:example@localhost:27017`
-    await db.connect(url);
+    await db.connect(MONGO_URI);
 })
 
 afterEach(async () => {
